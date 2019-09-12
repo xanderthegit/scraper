@@ -5,12 +5,7 @@ import pandas as pd
 
 
 
-edition_number = ["6530", "6430"]#, "5530", "5430", "7440", "6540"]
-#                  "6440", "5540", "5440", "3540", "3440", "7450",
-#                  "5550", "5450", "3550", "3450", "7470", "5570",
-#                  "5470", "3570", "3470", "7480", "5580", "5480",
-#                  "3580", "3480", "7490", "5591", "5590", "5491",
-#                  "5490", "5495", "3590", "3490"]
+edition_number = pd.read_csv(input.csv)
 df = pd.DataFrame(columns=["ModelNum", "TotalPrice", "BasePrice", "ShippingPrice", "URL"])
 for num in edition_number:
     URL = ("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313.TR1.TRC0.A0.H0.X"
@@ -56,3 +51,4 @@ for num in edition_number:
     newframe['URL'] = links
     #flattened = [val for sublist in table for val in sublist]
     df = pd.concat([df, newframe])
+pd.DataFrame.to_csv(df, "output.csv")
