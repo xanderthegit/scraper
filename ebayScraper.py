@@ -5,12 +5,12 @@ import pandas as pd
 
 
 
-edition_number = pd.read_csv(input.csv)
+items = pd.read_csv(input.csv)
 df = pd.DataFrame(columns=["ModelNum", "TotalPrice", "BasePrice", "ShippingPrice", "URL"])
-for num in edition_number:
+for _ in items:
     URL = ("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313.TR1.TRC0.A0.H0.X"
-        "dell+latitude+"+num+".TRS0&_nkw=dell+latitude+"
-        +num+"&_sacat=0&LH_TitleDesc=0&_sop=15&_osacat=0&_odkw=dell+latitude&LH_BIN=1&rt=nc")
+        +_+".TRS0&_nkw="
+        +_+"&_sacat=0&LH_TitleDesc=0&_sop=15&_osacat=0&_odkw=dell+latitude&LH_BIN=1&rt=nc")
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html5lib')
     
