@@ -4,9 +4,9 @@ import re
 import pandas as pd
 
 
-
-items = pd.read_csv(input.csv)
-df = pd.DataFrame(columns=["ModelNum", "TotalPrice", "BasePrice", "ShippingPrice", "URL"])
+input_ = input("Enter the path to the csv to read.")
+items = pd.read_csv(input_)
+df = input # pd.DataFrame(columns=["ModelNum", "TotalPrice", "BasePrice", "ShippingPrice", "URL"])
 for _ in items:
     URL = ("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313.TR1.TRC0.A0.H0.X"
         +_+".TRS0&_nkw="
